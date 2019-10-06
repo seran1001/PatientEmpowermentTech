@@ -10,6 +10,15 @@
     padding-left: 30px;
 }
 
+.nav-bg-mason {
+    background-color: transparent;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0));
+    display: inline-flex;
+    padding: .5rem 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .navbar-nav li {
     padding: 0 10px;
 }
@@ -83,7 +92,7 @@ width: 100%;
 
 /*--------Services------------------*/
 #services {
-    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(img/logo1.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(images/logo1.jpg);
     background-size: cover;
     background-position: center;
     color: #efefef !important;
@@ -202,24 +211,57 @@ width: 100%;
     background-position: center;
 }
 
-html,body { height:100%; }
+.play-btn {
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(129,188,255);
+    background-color: #333;
+}
+.play-btn:hover{
+    background-color: #33c;
+}
 
-/* The Modal (background) */
-.modal2 {
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.0); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
+.grid-container {
+    display: grid;
+    grid-gap: 20px 20px;
   }
-.modal2 p {
-    margin-top: 80%;
+.grid-item {
+    cursor: pointer;
+}
+.grid-item:hover {
+    background-color: rgb(255, 176, 123);
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.fadeOut {
+  visibility: visible;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+
+@keyframes pulse{
+    0%{transform:rotate(0deg) scale(1,1)}
+    50%{transform:rotate(0deg) scale(1.1,1.1)}
+    100%{transform:rotate(0deg) scale(1,1)}
+}
+.sequencePulse{
+    animation-name:pulse;
+    animation-duration:500ms;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+}
+
+.sequencePulse:hover{
+    animation-play-state: running;
+    cursor: pointer
 }

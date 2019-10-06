@@ -5,15 +5,63 @@
 <link rel = "stylesheet" href = "style.css">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+
+
+  (function() {
+    if (document.location.hash) {
+        setTimeout(function() {
+            window.scrollTo(window.scrollX, window.scrollY - 100);
+        }, 10);
+    }
+  })();
+
+
+</script>
+<script>
+/* Javascript functions */
+
+function showSymptom(number) {
+
+  var symElem = document.getElementById("symptom-text");
+  
+  var symptoms = ["Memory Loss",
+                "Repeat statements and questions over and over",
+                "Forget conversations, appointments or events,  and not remember them later",
+                "Routinely misplace possessions, often putting them in illogical locations",
+                "Have trouble finding the right words to identify objects, express thoughts or take part in conversations",
+                "Difficulty thinking/concentrating (especially with concepts and abstract thinking)",
+                "Poor judgements uncharacteristic of them",
+                "Loss of physical motor control"];
+
+  symElem.innerHTML = symptoms[number-1];
+  document.getElementById("symptom-icon").src = "images/symp" + number + ".png";
+  
+}
+
+
+</script>
+<style>
+.nav-link{
+  color: rgb(255, 156, 123);
+}
+a span {
+  color: rgb(255, 134, 94);
+}
+a span:hover {
+  cursor: pointer;
+  color: rgb(170, 87, 60);
+}
+</style>
 </head>
 <body>
 <!---NavigationBar-->
-<section id = "nav-bar">
+<section id = "nav-bar" style="display: block; text-align: center">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Patient Knowledge Empowerment</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,15 +72,6 @@
             <li class="nav-item">
               <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./type1Page.html">Type 1 Diabetes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./type2Page.html">Type 2 Diabetes</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="./alzheimersPage.html">Alzheimer's Disease</a>
-              </li>
             <li class="nav-item">
                 <a class="nav-link" href="./interactiveModulesPage.html">Interactive Modules</a>
               </li>
@@ -49,13 +88,24 @@
           </ul>
         </div>
       </nav>
+    <nav class="nav-bg-mason">
+      <a class="nav-link" href="#info" style="padding-top: 100px; margin-top: -100px;"><span>INFO</span></a>
+      <a class="nav-link" href="#causes" style="padding-top: 100px; margin-top: -100px;"><span>CAUSES</span></a>
+      <a class="nav-link" href="#symptoms" style="padding-top: 100px; margin-top: -100px;"><span>SYMPTOMS</span></a>
+      <a class="nav-link" href="#treatments" style="padding-top: 100px; margin-top: -100px;"><span>TREATMENTS</span></a>
+      <a class="nav-link" href="#tips" style="padding-top: 100px; margin-top: -100px;"><span>TIPS</span></a>
+    </nav>
 </section>
 
+
+
 <!---Information about T1 Diabetes-->
-<section id = "t1dinfo">
+<section id = "info">
     <div class = "container">
         <div class = "row">
-            <div class = "col-md-6">
+          <div class = "jumbotron">
+            <div class="row">
+            <div class = "col-md-6" style="padding-left: 25px;">  
                 <h3>
                     Important information about Alzheimer's Disease
                     <br>
@@ -65,31 +115,52 @@
                 Alzheimer's typically manifests after the age of 65.
                 <br>
                 <br>
+            </div>
+            <div class = "col-md-5" style="text-align: center;">
+              <img src="images/confused-ghost.png" style="height: 100%;">
+            </div>
+            </div>
+          </div>
+            <div class="jumbotron" id="causes">
                 <div class = "t1d-information">
                     <h3>
-                        Causes(A Phenomenon) of Alzheimer's Disease
+                        Causes of Alzheimer's Disease
                         <br>
                     </h3>
                     Caused by progressive brain cell death, progressive mental deterioration that can occur in middle or old age, due to generalized degeneration of the brain. It is the most common cause of premature senility.      
-                    <h3>
-                        <br>
-                        Symptoms
-                        <br>
-                     </h3>
-                       
-                        Early Signs
-                        <ul>
-                            <li>Memory Loss</li>
-                            <li>Repeat statements and questions over and over</li>
-                            <li>Forget conversations, appointments or events,  and not remember them later </li>
-                            <li>Routinely misplace possessions, often putting them in illogical locations                                </li>
-                            <li>Have trouble finding the right words to identify objects, express thoughts or take part in conversations                                </li>
-                            <li>Difficulty thinking/concentrating (especially with concepts and abstract thinking) </li>
-                            <li>Poor judgements uncharacteristic of them</li>
-                            <li>Loss of physical motor control </li>
-                        </ul>
-                        <br>
+                </div>
+            </div>
+            <div class="jumbotron" id="symptoms" style="width: 85%;">
+              <h2 style="text-align: center; vertical-align: middle; margin-top: -50px; padding-bottom: 20px;">
+                  <br>
+                  Symptoms
+                  <br>
+              </h2>
+              <div class="row">
+                  <div class = "col-md-3" style="padding-left: 50px;">
+                      <div class="grid-container" style="grid-template-columns: 75px 75px; grid-template-rows: 75px 75px 75px 75px; margin: 0 auto; width: 100%;">
+                          <img onclick="showSymptom(1)" class="grid-item" src="images/symp1.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(2)" class="grid-item" src="images/symp2.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(3)" class="grid-item" src="images/symp3.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(4)" class="grid-item" src="images/symp4.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(5)" class="grid-item" src="images/symp5.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(6)" class="grid-item" src="images/symp6.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(7)" class="grid-item" src="images/symp7.png" style="height: 75px; width: 75px;">
+                          <img onclick="showSymptom(8)" class="grid-item" src="images/symp8.png" style="height: 75px; width: 75px;">
+                      </div>
+                  </div>
+                  <div class = "col-md-9" style="width: 75%; text-align: center; margin: auto auto;">
+                      <img id="symptom-icon" src="images/symp1.png" style="height: 70px; width: 70px; margin: 25px;">
+                       <h4 id="symptom-text" style="margin: 25px; margin-left: 50px;">
+                         Memory Loss
+                       </h4>
                         
+                        <br>
+                  </div>
+                  
+              </div>
+            </div>
+            <div class="jumbotron" id="treatments">
                         <h3>
                             Treatments 
                             <br>
@@ -108,6 +179,9 @@
                         
                         </ul>
 
+            </div>
+          <div class="jumbotron" id="tips">
+
                         <h3>
                                 Daily Tips to reduce frustrations
                                 <br>
@@ -118,25 +192,25 @@
                         <li>Provide choices. Provide some, but not too many, choices every day. For example, provide two outfits to choose from, ask if he or she prefers a hot or cold beverage, or ask if he or she would rather go for a walk or see a movie.</li>
                         <li>Try to jog their memory with pictures of important places and relationships.</li>
     
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+    </div>
     </section>
               
 
 
 <!---Link to risk quiz-->
+<div class="jumbotron">
 <section id = "linkRiskQuiz">
     <div class = "container">
         <div class = "row">
             <div class = "col-md-6">
                 <div class = "quizDescription">
-                    To determine your risk for Type 2 Diabetes, take our quiz.
+                    To determine your risk for Alzheimer's, take our quiz.
                     <div class="t1QuizBtn">
                         <button class = "t1QuizLink">
                             <!--- Go to quiz for type 1 diabetes-->
-                            <a href="./t1Quiz">
+                            <a href="./ADQuiz.html">
                                 Go to quiz
                             </a>
                         </button>
@@ -146,6 +220,8 @@
         </div>
     </div>
 </section>
+</div>
+
 
 </body>
 </html>
